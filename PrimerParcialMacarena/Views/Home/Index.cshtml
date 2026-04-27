@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+@model IEnumerable<PrimerParcialMacarena.Models.Producto>
+
+<h1>Productos Favoritos</h1>
+
+@if (!Model?.Any() ?? true)
+{
+    <div class="alert alert-info">No hay productos marcados como favoritos.</div>
+}
+else
+{
+    <div class="row">
+        @foreach (var p in Model)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@p.Nombre</h5>
+                        <p class="card-text">Marca: @p.Marca<br/>Precio: @p.Precio</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
